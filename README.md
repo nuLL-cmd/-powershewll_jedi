@@ -96,7 +96,8 @@ Após a instalação, teste o scoop instalando algumas ferramentas que serão us
 - ***sudo***  
 - ***jq***
 - ***neovim***
-<br>Exemplo
+
+<br>Exemplo de uso
 ```bash
 scoop install neovim
 ```
