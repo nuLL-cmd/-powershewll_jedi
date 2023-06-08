@@ -211,7 +211,7 @@ Abra o PowerShell e digite
 ```bash
 Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
 ```
-Abra o script de perfil (```.\user_profile.ps1```) e coloque a linha abaixo, para que a configuração seja carregada a cada inicialização do terminal.
+Abra o script de perfil (```.\user_profile.ps1```) e coloque as linha a baixo, para que as configurações sejam carregadas a cada inicialização do terminal.
 ```bash
 #PSReadLine - AutoCompletion
 Set-PSReadLineOption -PredictionSource History
@@ -219,7 +219,7 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 # Salve e feche o arquivo
 ```
 ## FZF - Fuzzy Finder
-Será usado em conjunto com o PSReadLine para prover uma experiencia aprimorada em histórico e auto-complete de comandos digitados no
+Será usado em conjunto com o PSReadLine para prover uma experiência aprimorada em histórico e auto-complete de comandos digitados no
 PowerShell
 Abra o PowerShell e digite
 ```bash
@@ -237,13 +237,17 @@ Reinicie novamente o PowerShell e veja o resultado das customizações.
 ```bash
 #Prompt
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/M365Princess.omp.json" | Invoke-Expression
+
 #Terminal Icons
 Import-Module Terminal-Icons
+
 #PSReadLine - AutoCompletion
 Set-PSReadLineOption -PredictionSource History
+
 Set-PSReadLineOption -PredictionViewStyle ListView
 #FZF - Fuzzy Finder
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
+
 #Alias
 Set-Alias vim nvim
 Set-Alias ll ls
