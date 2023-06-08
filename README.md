@@ -4,7 +4,7 @@ Tutorial de como realizar algumas customizações no windows terminal e PowerShe
 > ℹ*Testado no Windows em suas versões 10 e 11*
 # Ingredientes
 
-Para a customização usarei ingredientes.
+Para a customização usarei alguns ingredientes.
    
 - [Windows Terminal Customizado](#windows-terminal-customizado)
 - [Ingredientes](#ingredientes)
