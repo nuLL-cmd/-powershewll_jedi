@@ -96,9 +96,9 @@ Após a instalação, teste o scoop instalando algumas ferramentas que serão us
 - ***sudo***  
 - ***jq***
 - ***neovim***
-Exemplo
+<br>Exemplo
 ```bash
-scoop install curl
+scoop install neovim
 ```
 ## Git
 Caso não tenha o Git instalado, instale usando o PowerShell
