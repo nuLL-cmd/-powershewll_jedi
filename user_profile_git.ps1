@@ -56,6 +56,58 @@ function sonar {
     "-Dmaven.test.skip=true"
 }
 
+#Maven clean install (Estou usando z jump directoroy)
+function maven { 
+    param(
+    [Parameter()]
+    [string]$projeto	
+
+    )
+    z work
+    cd $projeto
+    mvn clean install -X "-Dmaven.test.skip=true"
+
+}
+
+#Function para debugar sem precisar de ide (da pra usar até notepad), estou usando z jump directory
+function debug {
+    param(
+    [Parameter()]
+    [string]$projeto	
+
+    )
+    z java
+    cd $projeto
+    mvn clean install -X
+    java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 -jar ./target/$projeto.war
+
+}
+
+#Function jedi para converter arquivos para utf8 sem o BOOOMMMM
+function AlterarEncodingParaUTF8SemBOM {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$CaminhoDaPasta
+    )
+
+    # Obtém todos os arquivos da pasta especificada
+    $arquivos = Get-ChildItem -Path $CaminhoDaPasta -File
+
+    # Para cada arquivo, altera o encoding para UTF-8 sem BOM
+    foreach ($arquivo in $arquivos) {
+        $conteudo = Get-Content $arquivo.FullName
+        $novoConteudo = [System.Text.Encoding]::UTF8.GetBytes($conteudo)
+        Set-Content -Path $arquivo.FullName -Encoding UTF8 -Value ([System.Text.Encoding]::UTF8.GetString($novoConteudo))
+    }
+}
+
+#Iniciar BR modelo 
+function brmodelo {
+
+    java -jar C:\brmodelo\brModelo.jar
+}
+
 #Mostra informações sobre o drive como um todo
 function infoDrive {
    Get-PSDrive
@@ -85,40 +137,7 @@ function scorp132 {
     ssh -p 5400 usuario-dev@12.3.4.132
 }
 
-#Function para debugar sem precisar de ide (da pra usar até notepad), estou usando z jump directory
-function debug {
-    param(
-    [Parameter()]
-    [string]$projeto	
-
-    )
-    z java
-    cd $projeto
-    mvn clean install -X
-    java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 -jar ./target/$projeto.war
-
-}
-
 #Inciando aplicaçáo docker por flag
 function kafka {
     docker-compose -f C:\Users\null\Desktop\dev_docks_versioned\kafka\kafka_one_broker\docker-compose.yml up -d --force-recreate
-}
-
-#Function jedi para converter arquivos para utf8 sem o BOOOMMMM
-function AlterarEncodingParaUTF8SemBOM {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $true)]
-        [string]$CaminhoDaPasta
-    )
-
-    # Obtém todos os arquivos da pasta especificada
-    $arquivos = Get-ChildItem -Path $CaminhoDaPasta -File
-
-    # Para cada arquivo, altera o encoding para UTF-8 sem BOM
-    foreach ($arquivo in $arquivos) {
-        $conteudo = Get-Content $arquivo.FullName
-        $novoConteudo = [System.Text.Encoding]::UTF8.GetBytes($conteudo)
-        Set-Content -Path $arquivo.FullName -Encoding UTF8 -Value ([System.Text.Encoding]::UTF8.GetString($novoConteudo))
-    }
 }
