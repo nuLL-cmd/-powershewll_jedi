@@ -13,7 +13,7 @@ Para a customização usarei alguns ingredientes.
       - [Outras configurações de aparência (Personalizável):](#outras-configurações-de-aparência-personalizável)
   - [Scoop (instalador em linha de comando)](#scoop-instalador-em-linha-de-comando)
   - [Git](#git)
-  - [Criando perfil de usuário PowerShell e configurando aliases](#criando-perfil-de-usuário-powershell-e-configurando-alias-)
+  - [Criando perfil de usuário PowerShell e configurando alias](#criando-perfil-de-usuário-powershell-e-configurando-alias)
   - [Instalando e configurando o oh-my-posh](#instalando-e-configurando-o-oh-my-posh)
   - [Terminal Icons](#terminal-icons)
   - [Z Directory Jumper](#z-directory-jumper)
@@ -232,6 +232,13 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory
 # Salve e feche o arquivo
 ```
 Reinicie novamente o PowerShell e veja o resultado das customizações.
+
+> Caso receba um erro referente ao FZF mesmo após a reinicialização do terminal, siga os passos abaixo:
+>  - Baixe o zip no [repositório oficial do projeto](https://github.com/junegunn/fzf)
+>  - Extraia, e caso precise, renomeie o arquivo fzf para fzf.exe
+>  - Mova o arquivo para C:\Windows\System32
+>  - Reinicie o terminal novamente para aplicar as alterações.
+
 ## Considerações finais.
 ***Ao final deste documento, seu script de usuário do PowerShell deverá se parecer com o modelo abaixo***
 ```bash
